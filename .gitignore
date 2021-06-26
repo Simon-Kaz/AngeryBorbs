@@ -71,4 +71,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 .DS_Store
-/Assets/Tests/EditMode/TestScenes/*
+/Assets/Tests/EditMode/TestScenes/*.unity
