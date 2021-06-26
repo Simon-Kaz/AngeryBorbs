@@ -1,10 +1,13 @@
+using System;
 using UnityEngine;
 
 public static class ServiceLocator
 {
     public static T LocateComponent<T>(UnityTag unityTag)
     {
-        return GameObject.FindGameObjectWithTag(unityTag.ToString()).GetComponent<T>();
+        var component = GameObject.FindGameObjectWithTag(unityTag.ToString()).GetComponent<T>();
+        if(component == null) throw new NullReferenceException($"Game Object with tag: {unityTag} does not have a component of type: {typeof(T)}");
+        return component;
     }
 }
 
