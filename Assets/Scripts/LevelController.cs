@@ -8,6 +8,7 @@ public class LevelController : MonoBehaviour
     private void OnEnable()
     {
         EnemyManager.OnAllEnemiesKilled += EndLevelHandler;
+        Bird.OnBirdResetRequired += RestartLevelHandler;
     }
 
     private void EndLevelHandler()
@@ -15,5 +16,10 @@ public class LevelController : MonoBehaviour
         Debug.Log("You killed all enemies", this);
         _nextLevelIndex++;
         SceneHandler.StartLevel(GetNextLevelName);
+    }
+
+    private void RestartLevelHandler()
+    {
+        SceneHandler.RestartLevel();
     }
 }
