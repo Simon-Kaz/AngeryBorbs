@@ -33,7 +33,9 @@ public class ServiceLocatorTests
         var testGO = new GameObject {tag = UnityTag.EnemyManager.Tag()}
             .AddComponent<EnemyManager>();
 
-        ServiceLocator.LocateComponent<EnemyManager>(UnityTag.EnemyManager);
+        var locatedComponent = ServiceLocator.LocateComponent<EnemyManager>(UnityTag.EnemyManager);
+        Assert.That(locatedComponent, Is.Not.Null);
+        Assert.That(locatedComponent, Is.InstanceOf<EnemyManager>());
     }
 
     [Test]
