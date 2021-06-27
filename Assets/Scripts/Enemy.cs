@@ -1,11 +1,18 @@
+using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private GameObject cloudParticlePrefab;
 
-    public delegate void EnemyKilled(Enemy enemy);
-    public static event EnemyKilled OnEnemyKilled;
+    public delegate void EnemyHandler(Enemy enemy);
+    public static event EnemyHandler OnEnemyKilled;
+    public static event EnemyHandler OnEnemySpawned;
+
+    private void Awake()
+    {
+        OnEnemySpawned?.Invoke(this);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
