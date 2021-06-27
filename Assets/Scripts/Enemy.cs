@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,7 +8,7 @@ public class Enemy : MonoBehaviour
     public static event EnemyHandler OnEnemyKilled;
     public static event EnemyHandler OnEnemySpawned;
 
-    private void Awake()
+    private void Start()
     {
         OnEnemySpawned?.Invoke(this);
     }

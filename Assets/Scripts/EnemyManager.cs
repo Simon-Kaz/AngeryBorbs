@@ -34,6 +34,7 @@ public class EnemyManager: MonoBehaviour
 
         if (Enemies.Count == 0)
         {
+            Debug.Log("OnAllEnemiesKilled");
             OnAllEnemiesKilled?.Invoke();
         }
     }
