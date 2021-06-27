@@ -12,4 +12,9 @@ public static class SceneHandler
     {
         SceneManager.LoadScene(nextLevelName);
     }
+
+    public static bool IsLevelAvailable(string nextLevelName)
+    {
+        return SceneManager.GetSceneByName(nextLevelName).IsValid();
+    }
 }
